@@ -83,7 +83,7 @@ $sendkuy->messages()->send($params, ['idempotency_key' => 'order-1042-shipped'])
 
 | Option | Default | |
 | --- | --- | --- |
-| `base_url` | `https://app.sendkuy.com/api/v1` | |
+| `base_url` | `https://app.sendkuy.com/api/v1` | change it only to reach a proxy or a mock server in tests |
 | `timeout` | `30` | seconds; also per request: `['timeout' => 10]` |
 | `max_retries` | `2` | |
 | `http_client` | Guzzle | any PSR-18 client |
@@ -160,12 +160,6 @@ http_response_code(200);
 ```
 
 Use the endpoint secret in full, `whsec_` included, and answer within 10 seconds. Slow work belongs in a queue.
-
-## Self-hosted SendKuy
-
-```php
-$sendkuy = new SendKuy($key, ['base_url' => 'https://sendkuy.example.com/api/v1']);
-```
 
 ## Testing your code
 

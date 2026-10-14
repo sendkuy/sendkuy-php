@@ -50,14 +50,14 @@ final class TransportTest extends TestCase
         ]], ['X-Request-Id' => 'req_123', ...$headers]);
     }
 
-    public function test_sends_the_key_and_user_agent_to_a_self_hosted_base_url(): void
+    public function test_sends_the_key_and_user_agent_to_a_custom_base_url(): void
     {
         $client = new FakeClient([FakeClient::json(200, ['data' => []])]);
 
-        $this->transport($client, baseUrl: 'https://sendkuy.example.com/api/v1/')->send('GET', '/account');
+        $this->transport($client, baseUrl: 'https://proxy.example.com/api/v1/')->send('GET', '/account');
 
         $request = $client->requests[0];
-        $this->assertSame('https://sendkuy.example.com/api/v1/account', (string) $request->getUri());
+        $this->assertSame('https://proxy.example.com/api/v1/account', (string) $request->getUri());
         $this->assertSame('Bearer sk_test_123', $request->getHeaderLine('Authorization'));
         $this->assertStringStartsWith('sendkuy-php/'.SendKuy::VERSION.' PHP/', $request->getHeaderLine('User-Agent'));
     }
