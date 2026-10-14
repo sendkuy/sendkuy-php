@@ -14,8 +14,6 @@ Send WhatsApp, SMS and email from PHP with one API key, and retry without ever s
 [![PHPStan level max](https://img.shields.io/badge/PHPStan-level%20max-brightgreen)](phpstan.neon)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-> **Status:** not released yet. The first release, 1.0.0, is on its way. Star or watch this repository to hear when it lands.
-
 [Baca dalam Bahasa Indonesia](README.id.md)
 
 ## Install

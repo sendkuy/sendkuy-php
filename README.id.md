@@ -6,8 +6,6 @@
 
 Kirim WhatsApp, SMS, dan email dari PHP dengan satu API key. Retry-nya aman, tidak pernah mengirim dobel.
 
-> **Status:** belum dirilis. Rilis pertama, 1.0.0, sedang disiapkan. Beri star atau watch repo ini supaya kamu tahu saat rilis.
-
 [Read in English](README.md)
 
 ## Instalasi
