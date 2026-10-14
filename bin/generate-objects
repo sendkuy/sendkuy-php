@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use SendKuy\Tools\ObjectGenerator;
+
+$count = ObjectGenerator::fromFile(__DIR__.'/../spec/openapi.json')->write(__DIR__.'/../src/Objects');
+
+echo "Wrote {$count} files to src/Objects".PHP_EOL;

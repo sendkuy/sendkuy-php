@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use SendKuy\SendKuy;
+
+$key = getenv('SENDKUY_API_KEY');
+
+if (! is_string($key) || $key === '') {
+    fwrite(STDERR, "Set SENDKUY_API_KEY to run the smoke test.\n");
+    exit(1);
+}
+
+$account = (new SendKuy($key))->account()->get();
+
+echo 'Reached SendKuy as '.$account->id.PHP_EOL;

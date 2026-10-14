@@ -1,0 +1,30 @@
+name: Bug report
+description: Something in the SDK does not work as documented.
+labels: [bug]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: SDK version
+      placeholder: 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+      placeholder: '8.3'
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Include the smallest code that shows it. Never paste your API key.
+    validations:
+      required: true
+  - type: input
+    id: request
+    attributes:
+      label: Request id
+      description: From `$e->getRequestId()` or the `X-Request-Id` header, if there was a response.
