@@ -10,6 +10,7 @@ use SendKuy\SendKuyObject;
  * @property-read string|null $campaign_id
  * @property-read string|null $contact_id
  * @property-read string|null $message_id
+ * @property-read int $run
  * @property-read string $channel
  * @property-read string $status
  * @property-read string|null $scheduled_at

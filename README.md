@@ -16,6 +16,15 @@ Send WhatsApp, SMS and email from PHP with one API key, and retry without ever s
 
 [Baca dalam Bahasa Indonesia](README.id.md)
 
+## What you can send
+
+- **WhatsApp** from a number connected by QR code, the [SendKuy WA Gateway Chrome extension](https://chromewebstore.google.com/detail/sendkuy-wa-gateway/kdopgnbocfeoehhjbolfmibnmoicdofc), or the WhatsApp Cloud API ([WhatsApp API](https://sendkuy.com/channels/whatsapp?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **SMS** through an Android phone running SendKuy Gateway, or an SMS provider ([SMS gateway](https://sendkuy.com/channels/sms?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **Email** from your own domain ([email API](https://sendkuy.com/channels/email?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **OTP codes** with `verifications()`, falling back from WhatsApp to SMS.
+- **Bulk sends** to several recipients or a batch of up to 500, paced per number for you.
+- **Two-way conversations** for your helpdesk: incoming messages arrive as `message.received` webhooks.
+
 ## Install
 
 ```bash
@@ -153,13 +162,15 @@ try {
 $deliveryId = $_SERVER['HTTP_X_SENDKUY_EVENT_ID'] ?? ''; // the same on every retry: use it to skip duplicates
 
 if ($event['event'] === 'message.received') {
-    // ...
+    $message = $event['data']; // from, channel, body, provider_message_id
 }
 
 http_response_code(200);
 ```
 
 Use the endpoint secret in full, `whsec_` included, and answer within 10 seconds. Slow work belongs in a queue.
+
+`message.received` carries who wrote (`from`), the channel, the number that received it and any media. When your account forwards incoming messages to your webhook only, nothing is stored in SendKuy and `id` and `conversation_id` are `null`: reply with `messages()->send()` to `$message['from']` on `$message['channel']`.
 
 ## Testing your code
 

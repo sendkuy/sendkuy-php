@@ -18,6 +18,10 @@ use SendKuy\SendKuyObject;
  * @property-read string|null $scheduled_at
  * @property-read string|null $started_at
  * @property-read string|null $completed_at
+ * @property-read SendKuyObject|null $recurrence
+ * @property-read string|null $next_run_at
+ * @property-read int|null $current_run
+ * @property-read string|null $paused_reason
  * @property-read string $created_at
  * @property-read string $updated_at
  * @property-read SendKuyObject|null $stats

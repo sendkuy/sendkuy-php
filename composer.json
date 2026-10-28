@@ -1,9 +1,9 @@
 {
     "name": "sendkuy/sdk",
-    "description": "PHP SDK for the SendKuy API: send WhatsApp, SMS and email from your own code.",
+    "description": "WhatsApp API, SMS gateway and email API for PHP: send messages and OTP codes and receive replies with SendKuy.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["sendkuy", "whatsapp", "whatsapp-api", "sms", "email", "otp", "notifications", "messaging", "indonesia"],
+    "keywords": ["sendkuy", "whatsapp", "whatsapp-api", "whatsapp-gateway", "sms", "sms-gateway", "email", "email-api", "otp", "otp-verification", "webhooks", "notifications", "messaging", "indonesia"],
     "homepage": "https://docs.sendkuy.com",
     "support": {
         "issues": "https://github.com/sendkuy/sendkuy-php/issues",

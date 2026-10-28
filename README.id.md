@@ -8,6 +8,15 @@ Kirim WhatsApp, SMS, dan email dari PHP dengan satu API key. Retry-nya aman, tid
 
 [Read in English](README.md)
 
+## Yang bisa kamu kirim
+
+- **WhatsApp** dari nomor yang tersambung lewat kode QR, [ekstensi Chrome SendKuy WA Gateway](https://chromewebstore.google.com/detail/sendkuy-wa-gateway/kdopgnbocfeoehhjbolfmibnmoicdofc), atau WhatsApp Cloud API ([API WhatsApp](https://sendkuy.com/channels/whatsapp?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **SMS** lewat HP Android dengan aplikasi SendKuy Gateway, atau provider SMS ([SMS gateway](https://sendkuy.com/channels/sms?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **Email** dari domain kamu sendiri ([API email](https://sendkuy.com/channels/email?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php)).
+- **Kode OTP** lewat `verifications()`, dengan cadangan dari WhatsApp ke SMS.
+- **Kirim massal** ke banyak penerima atau batch sampai 500 pesan, dijeda per nomor secara otomatis.
+- **Percakapan dua arah** untuk helpdesk: pesan masuk tiba sebagai webhook `message.received`.
+
 ## Instalasi
 
 ```bash
@@ -76,6 +85,8 @@ $event = \SendKuy\Webhook::verify(
 ```
 
 Pakai secret endpoint secara utuh, termasuk `whsec_`, dan body mentah sebelum di-parse. Jawab dalam 10 detik.
+
+Event `message.received` membawa pengirim (`from`), channel, nomor yang menerimanya, dan media bila ada. Kalau akunmu meneruskan pesan masuk ke webhook saja, pesannya tidak disimpan di SendKuy, jadi `id` dan `conversation_id` bernilai `null`: balas dengan `messages()->send()` ke `$message['from']` di `$message['channel']`.
 
 Dokumentasi lengkap ada di [README bahasa Inggris](README.md) dan [docs.sendkuy.com](https://docs.sendkuy.com/?utm_source=readme&utm_medium=sdk&utm_campaign=sendkuy-php).
 
