@@ -13,5 +13,6 @@ use SendKuy\SendKuyObject;
  * @property-read SendKuyObject|null $plan
  * @property-read SendKuyObject|null $credits
  * @property-read int $rate_limit
+ * @property-read list<string> $scopes
  */
 final class Account extends SendKuyObject {}
